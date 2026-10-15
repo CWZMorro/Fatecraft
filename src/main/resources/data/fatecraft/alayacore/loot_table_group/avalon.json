@@ -1,0 +1,8 @@
+{
+	"group": "fatecraft:avalon",
+	"tables": [
+		"minecraft:chests/spawn_bonus_chest",
+		"minecraft:chests/trial_chambers/reward",
+		"minecraft:chests/trial_chambers/reward_ominous"
+	]
+}

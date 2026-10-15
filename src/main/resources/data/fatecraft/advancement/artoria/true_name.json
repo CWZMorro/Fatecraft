@@ -1,0 +1,10 @@
+{
+	"criteria": {"granted": {"trigger": "minecraft:impossible"}},
+	"display": {
+		"icon": {"id": "minecraft:nether_star"},
+		"title": {"translate": "advancements.fatecraft.artoria.true_name.title"},
+		"description": {"translate": "advancements.fatecraft.artoria.true_name.description"},
+		"frame": "challenge", "show_toast": true, "announce_to_chat": true, "hidden": false
+	},
+	"parent": "fatecraft:artoria/kill_elder_guardian"
+}

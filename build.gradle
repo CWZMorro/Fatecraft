@@ -1,0 +1,134 @@
+plugins {
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.mod_id
+}
+
+loom {
+	// Client-only code lives in src/client; server code cannot reach it.
+	splitEnvironmentSourceSets()
+
+	mods {
+		register(project.mod_id) {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+}
+
+fabricApi {
+	// Generated item definitions (src/datagen → src/main/generated), run with ./gradlew runDatagen.
+	configureDataGeneration {
+		createSourceSet = true
+		modId = "${project.mod_id}-datagen"
+		client = true
+		strictValidation = true
+	}
+
+	// In-game tests (src/gametest): ./gradlew runGameTest (server) and runClientGameTest (with a game window).
+	configureTests {
+		createSourceSet = true
+		modId = "${project.mod_id}-gametest"
+		enableGameTests = true
+		enableClientGameTests = true
+		eula = true
+	}
+}
+
+// The server runner runs each environment as its own batch, so a test that changes global state
+// finishes before another starts. The environments themselves are empty.
+def isolatedEnvironments = layout.buildDirectory.dir('generated/gametest-environments')
+tasks.register('generateIsolatedGameTestEnvironments') {
+	def tests = fileTree('src/gametest/java') { include '**/*GameTests.java' }
+	inputs.files(tests)
+	outputs.dir(isolatedEnvironments)
+	doLast {
+		def root = isolatedEnvironments.get().asFile
+		delete(root)
+		tests.each { source ->
+			def names = source.text =~ /environment = "fatecraft-gametest:(isolated\/[a-z_]+)"/
+			names.each { match ->
+				def target = new File(root, "data/fatecraft-gametest/test_environment/${match[1]}.json")
+				target.parentFile.mkdirs()
+				target.text = '{"type":"minecraft:all_of","definitions":[]}\n'
+			}
+		}
+	}
+}
+sourceSets.gametest.resources.srcDir(isolatedEnvironments)
+tasks.named('processGametestResources') {
+	dependsOn tasks.named('generateIsolatedGameTestEnvironments')
+}
+
+// GameTest picks a new grid origin on each run, so terrain a failed run left journalled would
+// block the next run's recovery. Each run starts with a fresh world and config; the previous
+// ones are archived for inspection, and only the newest few archives are kept.
+def keptGameTestArchives = 3
+tasks.named('runGameTest') {
+	doFirst {
+		// Loom sets JavaExec's workingDir in its task action, after doFirst runs.
+		def run = layout.buildDirectory.dir('run/gameTest').get().asFile
+		def previous = ['world', 'config'].collect { new File(run, it) }.findAll { it.exists() }
+		if (!previous.isEmpty()) {
+			def archives = layout.buildDirectory.dir('reports/gametest-worlds').get().asFile
+			archives.mkdirs()
+			def archive = java.nio.file.Files.createTempDirectory(archives.toPath(), 'previous-')
+			previous.each { java.nio.file.Files.move(it.toPath(), archive.resolve(it.name)) }
+			logger.lifecycle("Preserved previous GameTest world and config at ${archive}")
+			def older = archives.listFiles().findAll { it.isDirectory() && it.name.startsWith('previous-') }
+				.sort { -it.lastModified() }.drop(keptGameTestArchives)
+			older.each { delete(it) }
+		}
+	}
+}
+
+// ./gradlew runClientGameTest -PclientTest=RhoAias runs only the client tests whose class name starts with it.
+tasks.named('runClientGameTest') {
+	if (project.hasProperty('clientTest')) {
+		jvmArgs "-Dfatecraft.clientTest=${project.clientTest}"
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+	// Resolved from ../alaya-core through includeBuild in settings.gradle.
+	implementation "io.github.cwzmorro:alayacore:${project.alayacore_version}"
+	// The composite build hands over Alaya Core's main classes only; its client classes (side tabs) are built first and added here.
+	clientImplementation files("../alaya-core/build/classes/java/client") {
+		builtBy gradle.includedBuild('alaya-core').task(':clientClasses')
+	}
+}
+
+java {
+	toolchain.languageVersion = JavaLanguageVersion.of(project.java_version as int)
+	withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+	options.release = project.java_version as int
+}
+
+processResources {
+	def props = [
+		version          : project.version,
+		mod_id           : project.mod_id,
+		loader_version   : project.loader_version,
+		minecraft_version: project.minecraft_version,
+		java_version     : project.java_version,
+		alayacore_version: project.alayacore_version
+	]
+	inputs.properties props
+
+	filesMatching('fabric.mod.json') {
+		expand props
+	}
+}

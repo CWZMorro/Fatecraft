@@ -1,0 +1,10 @@
+{
+	"criteria": {"granted": {"trigger": "minecraft:impossible"}},
+	"display": {
+		"icon": {"id": "minecraft:ominous_bottle"},
+		"title": {"translate": "advancements.fatecraft.artoria.win_raid.title"},
+		"description": {"translate": "advancements.fatecraft.artoria.win_raid.description"},
+		"frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+	},
+	"parent": "fatecraft:artoria/kill_warden"
+}

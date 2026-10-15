@@ -1,0 +1,26 @@
+{
+	"required": true,
+	"package": "io.github.cwzmorro.fatecraft.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"mixins": [
+		"AbstractArrowMixin",
+		"AlteraLivingEntityMixin",
+		"AlteraPlayerMixin",
+		"AvalonAbilitiesMixin",
+		"AvalonEntityMixin",
+		"AvalonPacketsMixin",
+		"AvalonPlayerMixin",
+		"ProjectileMixin",
+		"ProjectNamesMixin",
+		"ProjectionWearMixin",
+		"SwordBodyLivingEntityMixin",
+		"TraceAbilitiesMixin",
+		"UbwAbilitiesMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}

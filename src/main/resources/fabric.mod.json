@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "${mod_id}",
+	"version": "${version}",
+	"name": "Fatecraft",
+	"description": "Servants from Fate, built on Alaya Core.",
+	"authors": [
+		"CWZMorro"
+	],
+	"contributors": [
+		"Ophelie Juarez (@SakuraKato): Ea's model is converted from her \"Sword of Rupture, Enuma Elish (乖離剣 / EA)\", https://sketchfab.com/3d-models/sword-of-rupture-enuma-elish-ea-551a02ec36b949cb93c2b6579f4d9016, CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/), modified"
+	],
+	"license": "All Rights Reserved",
+	"icon": "assets/fatecraft/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.cwzmorro.fatecraft.Fatecraft"
+		],
+		"client": [
+			"io.github.cwzmorro.fatecraft.client.FatecraftClient"
+		]
+	},
+	"mixins": [
+		"fatecraft.mixins.json",
+		{
+			"config": "fatecraft.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=${loader_version}",
+		"minecraft": "~${minecraft_version}",
+		"java": ">=${java_version}",
+		"fabric-api": "*",
+		"alayacore": ">=${alayacore_version}"
+	}
+}

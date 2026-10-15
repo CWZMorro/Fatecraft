@@ -1,0 +1,23 @@
+{
+	"criteria": {
+		"granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"icon": {
+			"id": "minecraft:gold_block"
+		},
+		"title": {
+			"translate": "advancements.fatecraft.gilgamesh.root.title"
+		},
+		"description": {
+			"translate": "advancements.fatecraft.gilgamesh.root.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": true
+	},
+	"parent": "alayacore:throne_of_heroes"
+}

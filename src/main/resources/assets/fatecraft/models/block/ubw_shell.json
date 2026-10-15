@@ -1,0 +1,5 @@
+{
+  "ambientocclusion": false,
+  "textures": { "particle": "minecraft:block/terracotta" },
+  "elements": []
+}

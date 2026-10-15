@@ -1,0 +1,39 @@
+{
+	"parent": "fatecraft:item/ea",
+	"display": {
+		"gui": {
+			"rotation": [
+				0,
+				0,
+				-45
+			],
+			"translation": [
+				-4.6,
+				-4.6,
+				0
+			],
+			"scale": [
+				0.84,
+				0.84,
+				0.84
+			]
+		},
+		"fixed": {
+			"rotation": [
+				0,
+				180,
+				-45
+			],
+			"translation": [
+				4.6,
+				-4.6,
+				0
+			],
+			"scale": [
+				0.84,
+				0.84,
+				0.84
+			]
+		}
+	}
+}

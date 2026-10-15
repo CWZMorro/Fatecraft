@@ -1,0 +1,116 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:select",
+      "cases": [
+        {
+          "model": {
+            "type": "minecraft:special",
+            "base": "fatecraft:item/emiya_bow",
+            "model": {
+              "type": "fatecraft:weapon_mesh",
+              "bow": {
+                "front": 0.405,
+                "grip": 0.49,
+                "nock": [
+                  0.7274,
+                  0.5758,
+                  0.5
+                ],
+                "string": "Bow_String",
+                "string_bottom": -0.417,
+                "string_top": 1.5686
+              },
+              "first_person": true,
+              "mesh": "fatecraft:emiya_bow",
+              "texture": "fatecraft:weapon/emiya_bow"
+            }
+          },
+          "when": [
+            "firstperson_righthand",
+            "firstperson_lefthand"
+          ]
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:special",
+        "base": "fatecraft:item/emiya_bow",
+        "model": {
+          "type": "fatecraft:weapon_mesh",
+          "bow": {
+            "front": 0.405,
+            "grip": 0.49,
+            "nock": [
+              0.7274,
+              0.5758,
+              0.5
+            ],
+            "string": "Bow_String",
+            "string_bottom": -0.417,
+            "string_top": 1.5686
+          },
+          "mesh": "fatecraft:emiya_bow_low",
+          "texture": "fatecraft:weapon/emiya_bow"
+        }
+      },
+      "property": "minecraft:display_context"
+    },
+    "on_true": {
+      "type": "minecraft:select",
+      "cases": [
+        {
+          "model": {
+            "type": "minecraft:special",
+            "base": "fatecraft:item/emiya_bow_drawn",
+            "model": {
+              "type": "fatecraft:weapon_mesh",
+              "bow": {
+                "front": 0.405,
+                "grip": 0.49,
+                "nock": [
+                  0.7274,
+                  0.5758,
+                  0.5
+                ],
+                "string": "Bow_String",
+                "string_bottom": -0.417,
+                "string_top": 1.5686
+              },
+              "first_person": true,
+              "mesh": "fatecraft:emiya_bow",
+              "texture": "fatecraft:weapon/emiya_bow"
+            }
+          },
+          "when": [
+            "firstperson_righthand",
+            "firstperson_lefthand"
+          ]
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:special",
+        "base": "fatecraft:item/emiya_bow_drawn",
+        "model": {
+          "type": "fatecraft:weapon_mesh",
+          "bow": {
+            "front": 0.405,
+            "grip": 0.49,
+            "nock": [
+              0.7274,
+              0.5758,
+              0.5
+            ],
+            "string": "Bow_String",
+            "string_bottom": -0.417,
+            "string_top": 1.5686
+          },
+          "mesh": "fatecraft:emiya_bow_low",
+          "texture": "fatecraft:weapon/emiya_bow"
+        }
+      },
+      "property": "minecraft:display_context"
+    },
+    "property": "minecraft:using_item"
+  }
+}

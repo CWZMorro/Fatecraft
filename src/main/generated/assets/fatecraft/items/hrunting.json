@@ -1,0 +1,33 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:special",
+          "base": "fatecraft:item/hrunting",
+          "model": {
+            "type": "fatecraft:weapon_mesh",
+            "first_person": true,
+            "mesh": "fatecraft:hrunting",
+            "texture": "fatecraft:weapon/hrunting"
+          }
+        },
+        "when": [
+          "firstperson_righthand",
+          "firstperson_lefthand"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:special",
+      "base": "fatecraft:item/hrunting",
+      "model": {
+        "type": "fatecraft:weapon_mesh",
+        "mesh": "fatecraft:hrunting_low",
+        "texture": "fatecraft:weapon/hrunting"
+      }
+    },
+    "property": "minecraft:display_context"
+  }
+}

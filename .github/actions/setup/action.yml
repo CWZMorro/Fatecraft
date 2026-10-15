@@ -1,0 +1,23 @@
+name: Set up Fatecraft build
+description: Check out the matching Alaya Core source and install the shared Java toolchain.
+runs:
+  using: composite
+  steps:
+    - name: Read Alaya Core version
+      id: alaya
+      shell: bash
+      run: |
+        version=$(awk -F= '$1 == "alayacore_version" {gsub(/[[:space:]]/, "", $2); print $2}' fatecraft/gradle.properties)
+        test -n "$version"
+        echo "version=$version" >> "$GITHUB_OUTPUT"
+    - name: Check out Alaya Core beside Fatecraft
+      uses: actions/checkout@v4
+      with:
+        repository: CWZMorro/AlayaCore
+        ref: v${{ steps.alaya.outputs.version }}
+        path: alaya-core
+        persist-credentials: false
+    - uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: '25'

@@ -1,0 +1,30 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fatecraft
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: fatecraft
+          persist-credentials: false
+      - uses: ./fatecraft/.github/actions/setup
+      - name: Build and test the tagged version
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          test "${TAG#v}" = "$(awk -F= '$1 == "mod_version" {print $2}' gradle.properties)"
+          ./gradlew --no-daemon --no-configuration-cache build
+      - name: Publish mod jar and changelog notes
+        env:
+          TAG: ${{ github.ref_name }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: bash .github/scripts/release.sh

@@ -1,0 +1,10 @@
+{
+	"criteria": {"granted": {"trigger": "minecraft:impossible"}},
+	"display": {
+		"icon": {"id": "minecraft:echo_shard"},
+		"title": {"translate": "advancements.fatecraft.artoria.kill_warden.title"},
+		"description": {"translate": "advancements.fatecraft.artoria.kill_warden.description"},
+		"frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+	},
+	"parent": "fatecraft:artoria/root"
+}

@@ -1,0 +1,10 @@
+{
+	"criteria": {"granted": {"trigger": "minecraft:impossible"}},
+	"display": {
+		"icon": {"id": "minecraft:nether_star"},
+		"title": {"translate": "advancements.fatecraft.altera.true_name.title"},
+		"description": {"translate": "advancements.fatecraft.altera.true_name.description"},
+		"frame": "challenge", "show_toast": true, "announce_to_chat": true, "hidden": false
+	},
+	"parent": "fatecraft:altera/kill_elder_guardian"
+}

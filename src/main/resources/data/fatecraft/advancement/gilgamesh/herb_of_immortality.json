@@ -1,0 +1,23 @@
+{
+	"criteria": {
+		"granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"icon": {
+			"id": "minecraft:wet_sponge"
+		},
+		"title": {
+			"translate": "advancements.fatecraft.gilgamesh.herb_of_immortality.title"
+		},
+		"description": {
+			"translate": "advancements.fatecraft.gilgamesh.herb_of_immortality.description"
+		},
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"parent": "fatecraft:gilgamesh/bull_of_heaven"
+}

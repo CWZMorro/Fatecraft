@@ -1,0 +1,10 @@
+{
+	"criteria": {"granted": {"trigger": "minecraft:impossible"}},
+	"display": {
+		"icon": {"id": "minecraft:white_banner"},
+		"title": {"translate": "advancements.fatecraft.altera.win_raid.title"},
+		"description": {"translate": "advancements.fatecraft.altera.win_raid.description"},
+		"frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+	},
+	"parent": "fatecraft:altera/kill_warden"
+}

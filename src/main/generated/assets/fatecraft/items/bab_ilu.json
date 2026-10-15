@@ -1,0 +1,33 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:special",
+          "base": "fatecraft:item/bab_ilu",
+          "model": {
+            "type": "fatecraft:weapon_mesh",
+            "first_person": true,
+            "mesh": "fatecraft:bab_ilu",
+            "texture": "fatecraft:weapon/bab_ilu"
+          }
+        },
+        "when": [
+          "firstperson_righthand",
+          "firstperson_lefthand"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:special",
+      "base": "fatecraft:item/bab_ilu",
+      "model": {
+        "type": "fatecraft:weapon_mesh",
+        "mesh": "fatecraft:bab_ilu_low",
+        "texture": "fatecraft:weapon/bab_ilu"
+      }
+    },
+    "property": "minecraft:display_context"
+  }
+}

@@ -1,0 +1,10 @@
+{
+	"criteria": {"granted": {"trigger": "minecraft:impossible"}},
+	"display": {
+		"icon": {"id": "fatecraft:photon_ray"},
+		"title": {"translate": "advancements.fatecraft.altera.root.title"},
+		"description": {"translate": "advancements.fatecraft.altera.root.description"},
+		"frame": "task", "show_toast": true, "announce_to_chat": true, "hidden": true
+	},
+	"parent": "alayacore:throne_of_heroes"
+}

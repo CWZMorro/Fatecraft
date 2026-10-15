@@ -1,0 +1,9 @@
+{
+	"branch": "fatecraft:altera/root",
+	"deeds": [
+		{"advancement": "fatecraft:altera/kill_warden", "kill": "minecraft:warden"},
+		{"advancement": "fatecraft:altera/win_raid", "win_raid": true},
+		{"advancement": "fatecraft:altera/kill_elder_guardian", "kill": "minecraft:elder_guardian"}
+	],
+	"awakening": "fatecraft:altera/true_name"
+}

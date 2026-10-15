@@ -1,0 +1,76 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:select",
+      "cases": [
+        {
+          "model": {
+            "type": "minecraft:special",
+            "base": "fatecraft:item/ea",
+            "model": {
+              "type": "fatecraft:weapon_mesh",
+              "first_person": true,
+              "glow": "fatecraft:weapon/ea_glow",
+              "glow_while_spinning": true,
+              "mesh": "fatecraft:ea",
+              "texture": "fatecraft:weapon/ea"
+            }
+          },
+          "when": [
+            "firstperson_righthand",
+            "firstperson_lefthand"
+          ]
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:special",
+        "base": "fatecraft:item/ea",
+        "model": {
+          "type": "fatecraft:weapon_mesh",
+          "glow": "fatecraft:weapon/ea_glow",
+          "glow_while_spinning": true,
+          "mesh": "fatecraft:ea_low",
+          "texture": "fatecraft:weapon/ea"
+        }
+      },
+      "property": "minecraft:display_context"
+    },
+    "on_true": {
+      "type": "minecraft:select",
+      "cases": [
+        {
+          "model": {
+            "type": "minecraft:special",
+            "base": "fatecraft:item/ea_raised",
+            "model": {
+              "type": "fatecraft:weapon_mesh",
+              "first_person": true,
+              "glow": "fatecraft:weapon/ea_glow",
+              "glow_while_spinning": true,
+              "mesh": "fatecraft:ea",
+              "texture": "fatecraft:weapon/ea"
+            }
+          },
+          "when": [
+            "firstperson_righthand",
+            "firstperson_lefthand"
+          ]
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:special",
+        "base": "fatecraft:item/ea_raised",
+        "model": {
+          "type": "fatecraft:weapon_mesh",
+          "glow": "fatecraft:weapon/ea_glow",
+          "glow_while_spinning": true,
+          "mesh": "fatecraft:ea_low",
+          "texture": "fatecraft:weapon/ea"
+        }
+      },
+      "property": "minecraft:display_context"
+    },
+    "property": "minecraft:using_item"
+  }
+}

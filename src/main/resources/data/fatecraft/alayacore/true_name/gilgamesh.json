@@ -1,0 +1,18 @@
+{
+	"branch": "fatecraft:gilgamesh/root",
+	"deeds": [
+		{
+			"advancement": "fatecraft:gilgamesh/humbaba",
+			"kill": "minecraft:warden"
+		},
+		{
+			"advancement": "fatecraft:gilgamesh/bull_of_heaven",
+			"win_raid": true
+		},
+		{
+			"advancement": "fatecraft:gilgamesh/herb_of_immortality",
+			"kill": "minecraft:elder_guardian"
+		}
+	],
+	"awakening": "fatecraft:gilgamesh/true_name"
+}

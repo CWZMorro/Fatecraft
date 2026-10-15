@@ -1,0 +1,22 @@
+name: Build
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: fatecraft
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: fatecraft
+          persist-credentials: false
+      - uses: ./fatecraft/.github/actions/setup
+      - name: Build and test
+        run: ./gradlew --no-daemon --no-configuration-cache build

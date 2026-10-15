@@ -1,0 +1,9 @@
+{
+	"branch": "fatecraft:artoria/root",
+	"deeds": [
+		{"advancement": "fatecraft:artoria/kill_warden", "kill": "minecraft:warden"},
+		{"advancement": "fatecraft:artoria/win_raid", "win_raid": true},
+		{"advancement": "fatecraft:artoria/kill_elder_guardian", "kill": "minecraft:elder_guardian"}
+	],
+	"awakening": "fatecraft:artoria/true_name"
+}

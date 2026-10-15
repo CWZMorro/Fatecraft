@@ -1,0 +1,25 @@
+# Gradle and build output
+.gradle/
+build/
+out/
+bin/
+run/
+logs/
+*.log
+
+# Source art and conversion tools (the generated files in src/ are what the mod uses)
+art/
+
+# Editors and IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+
+# Tools and OS files
+.DS_Store
+Thumbs.db

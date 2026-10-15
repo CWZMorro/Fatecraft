@@ -1,0 +1,33 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:special",
+          "base": "fatecraft:item/kanshou",
+          "model": {
+            "type": "fatecraft:weapon_mesh",
+            "first_person": true,
+            "mesh": "fatecraft:kanshou",
+            "texture": "fatecraft:weapon/kanshou"
+          }
+        },
+        "when": [
+          "firstperson_righthand",
+          "firstperson_lefthand"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:special",
+      "base": "fatecraft:item/kanshou",
+      "model": {
+        "type": "fatecraft:weapon_mesh",
+        "mesh": "fatecraft:kanshou_low",
+        "texture": "fatecraft:weapon/kanshou"
+      }
+    },
+    "property": "minecraft:display_context"
+  }
+}

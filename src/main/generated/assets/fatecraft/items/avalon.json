@@ -1,0 +1,76 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:select",
+      "cases": [
+        {
+          "model": {
+            "type": "minecraft:special",
+            "base": "fatecraft:item/avalon",
+            "model": {
+              "type": "fatecraft:weapon_mesh",
+              "first_person": true,
+              "mesh": "fatecraft:avalon",
+              "texture": "fatecraft:weapon/avalon"
+            }
+          },
+          "when": [
+            "firstperson_righthand",
+            "firstperson_lefthand"
+          ]
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:special",
+        "base": "fatecraft:item/avalon",
+        "model": {
+          "type": "fatecraft:weapon_mesh",
+          "mesh": "fatecraft:avalon_low",
+          "texture": "fatecraft:weapon/avalon"
+        }
+      },
+      "property": "minecraft:display_context"
+    },
+    "on_true": {
+      "type": "minecraft:select",
+      "cases": [
+        {
+          "model": {
+            "type": "minecraft:special",
+            "base": "fatecraft:item/avalon_used",
+            "model": {
+              "type": "fatecraft:weapon_mesh",
+              "empty_hand": {
+                "offset": [
+                  0.12,
+                  0.2,
+                  0.72
+                ],
+                "pitch": -90.0
+              },
+              "first_person": true,
+              "mesh": "fatecraft:avalon",
+              "texture": "fatecraft:weapon/avalon"
+            }
+          },
+          "when": [
+            "firstperson_righthand",
+            "firstperson_lefthand"
+          ]
+        }
+      ],
+      "fallback": {
+        "type": "minecraft:special",
+        "base": "fatecraft:item/avalon_used",
+        "model": {
+          "type": "fatecraft:weapon_mesh",
+          "mesh": "fatecraft:avalon_low",
+          "texture": "fatecraft:weapon/avalon"
+        }
+      },
+      "property": "minecraft:display_context"
+    },
+    "property": "minecraft:using_item"
+  }
+}

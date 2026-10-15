@@ -1,0 +1,82 @@
+package io.github.cwzmorro.fatecraft.client;
+
+import io.github.cwzmorro.alayacore.shield.ClientShieldEvents;
+import io.github.cwzmorro.fatecraft.altera.Altera;
+import io.github.cwzmorro.fatecraft.artoria.Artoria;
+import io.github.cwzmorro.fatecraft.chain.Chains;
+import io.github.cwzmorro.fatecraft.client.altera.AlteraSwordOrigin;
+import io.github.cwzmorro.fatecraft.client.altera.PhotonRayChargeHud;
+import io.github.cwzmorro.fatecraft.client.altera.PhotonRayRenderer;
+import io.github.cwzmorro.fatecraft.client.altera.TeardropPhotonRayRenderer;
+import io.github.cwzmorro.fatecraft.client.artoria.ArtoriaAttackRenderer;
+import io.github.cwzmorro.fatecraft.client.artoria.AvalonEffect;
+import io.github.cwzmorro.fatecraft.client.artoria.ExcaliburBladeGlow;
+import io.github.cwzmorro.fatecraft.client.artoria.ExcaliburChargeTrail;
+import io.github.cwzmorro.fatecraft.client.artoria.ExcaliburRenderer;
+import io.github.cwzmorro.fatecraft.client.artoria.ManaBurstEffect;
+import io.github.cwzmorro.fatecraft.client.chain.ChainBindRenderer;
+import io.github.cwzmorro.fatecraft.client.gate.GateRenderer;
+import io.github.cwzmorro.fatecraft.client.gate.TreasureRenderer;
+import io.github.cwzmorro.fatecraft.client.shield.RhoAiasMemory;
+import io.github.cwzmorro.fatecraft.client.shield.RhoAiasRenderer;
+import io.github.cwzmorro.fatecraft.client.trace.ProjectionLines;
+import io.github.cwzmorro.fatecraft.client.trace.SwordBodyEffect;
+import io.github.cwzmorro.fatecraft.client.ubw.UbwClient;
+import io.github.cwzmorro.fatecraft.client.vault.ClientVault;
+import io.github.cwzmorro.fatecraft.client.vault.VaultScreen;
+import io.github.cwzmorro.fatecraft.client.weapon.BowPose;
+import io.github.cwzmorro.fatecraft.client.weapon.CompressedAirEffect;
+import io.github.cwzmorro.fatecraft.client.weapon.EaDrawEffect;
+import io.github.cwzmorro.fatecraft.client.weapon.EaDrawRenderer;
+import io.github.cwzmorro.fatecraft.client.weapon.EnumaElishEffect;
+import io.github.cwzmorro.fatecraft.client.weapon.FreshUse;
+import io.github.cwzmorro.fatecraft.client.weapon.WeaponMeshes;
+import io.github.cwzmorro.fatecraft.gate.Gates;
+import io.github.cwzmorro.fatecraft.network.EaDrawPayload;
+import io.github.cwzmorro.fatecraft.shield.FateShields;
+import io.github.cwzmorro.fatecraft.vault.Vaults;
+import io.github.cwzmorro.fatecraft.weapon.FateWeapons;
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.resource.v1.ResourceLoader;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.NoopRenderer;
+import net.minecraft.server.packs.PackType;
+
+public final class FatecraftClient implements ClientModInitializer {
+	@Override
+	public void onInitializeClient() {
+		ResourceLoader.get(PackType.CLIENT_RESOURCES).registerReloadListener(WeaponMeshes.ID, new WeaponMeshes());
+		CompressedAirEffect.register();
+		ManaBurstEffect.register();
+		ExcaliburChargeTrail.register();
+		ExcaliburBladeGlow.register();
+		AlteraSwordOrigin.register();
+		BowPose.register();
+		SwordBodyEffect.register();
+		AvalonEffect.register();
+		EnumaElishEffect.register();
+		EaDrawEffect.register();
+		FreshUse.register();
+		PhotonRayChargeHud.register();
+		ClientPlayNetworking.registerGlobalReceiver(EaDrawPayload.TYPE, (payload, context) -> EaDrawEffect.start(payload.at(), payload.yaw(), payload.drawer()));
+		ClientShieldEvents.register(FateShields.RHO_AIAS, (shield, point, hpTaken) -> RhoAiasMemory.hit(shield, point));
+		EntityRenderers.register(Altera.PHOTON_RAY, PhotonRayRenderer::new);
+		EntityRenderers.register(Artoria.ATTACK, ArtoriaAttackRenderer::new);
+		EntityRenderers.register(Artoria.EXCALIBUR, ExcaliburRenderer::new);
+		EntityRenderers.register(Altera.TEARDROP, TeardropPhotonRayRenderer::new);
+		EntityRenderers.register(FateWeapons.EA_DRAW, EaDrawRenderer::new);
+		EntityRenderers.register(FateWeapons.ENUMA_ELISH_BEAM, NoopRenderer::new);
+		EntityRenderers.register(Gates.GATE, GateRenderer::new);
+		EntityRenderers.register(Gates.TREASURE, TreasureRenderer::new);
+		EntityRenderers.register(FateWeapons.THROWN_WEAPON, TreasureRenderer::new);
+		TreasureRenderer.forming(new ProjectionLines());
+		EntityRenderers.register(Chains.BIND, ChainBindRenderer::new);
+		EntityRenderers.register(Chains.LINK, NoopRenderer::new);
+		EntityRenderers.register(FateShields.RHO_AIAS, RhoAiasRenderer::new);
+		UbwClient.init();
+		ClientVault.register();
+		MenuScreens.register(Vaults.MENU, VaultScreen::new);
+	}
+}

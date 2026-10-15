@@ -1,0 +1,35 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:special",
+          "base": "fatecraft:item/excalibur",
+          "model": {
+            "type": "fatecraft:weapon_mesh",
+            "first_person": true,
+            "glow": "fatecraft:weapon/excalibur_glow",
+            "mesh": "fatecraft:excalibur",
+            "texture": "fatecraft:weapon/excalibur"
+          }
+        },
+        "when": [
+          "firstperson_righthand",
+          "firstperson_lefthand"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:special",
+      "base": "fatecraft:item/excalibur",
+      "model": {
+        "type": "fatecraft:weapon_mesh",
+        "glow": "fatecraft:weapon/excalibur_glow",
+        "mesh": "fatecraft:excalibur_low",
+        "texture": "fatecraft:weapon/excalibur"
+      }
+    },
+    "property": "minecraft:display_context"
+  }
+}

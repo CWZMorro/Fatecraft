@@ -1,0 +1,73 @@
+{
+	"parent": "fatecraft:item/ea",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [
+				-90,
+				-90,
+				10
+			],
+			"translation": [
+				0,
+				-2.6,
+				1.67
+			],
+			"scale": [
+				1,
+				1,
+				1
+			]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [
+				-90,
+				90,
+				-10
+			],
+			"translation": [
+				0,
+				-2.6,
+				1.67
+			],
+			"scale": [
+				1,
+				1,
+				1
+			]
+		},
+		"firstperson_righthand": {
+			"rotation": [
+				68.7,
+				-78.5,
+				28.5
+			],
+			"translation": [
+				3.7,
+				0.18,
+				-15.87
+			],
+			"scale": [
+				1.065,
+				1.065,
+				1.065
+			]
+		},
+		"firstperson_lefthand": {
+			"rotation": [
+				68.7,
+				78.5,
+				-28.5
+			],
+			"translation": [
+				3.7,
+				0.18,
+				-15.87
+			],
+			"scale": [
+				1.065,
+				1.065,
+				1.065
+			]
+		}
+	}
+}

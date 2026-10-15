@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "fatecraft:block/ubw_ground" },
+      { "model": "fatecraft:block/ubw_ground", "y": 90 },
+      { "model": "fatecraft:block/ubw_ground", "y": 180 },
+      { "model": "fatecraft:block/ubw_ground", "y": 270 }
+    ]
+  }
+}

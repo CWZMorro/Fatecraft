@@ -1,0 +1,23 @@
+{
+	"criteria": {
+		"granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"icon": {
+			"id": "minecraft:totem_of_undying"
+		},
+		"title": {
+			"translate": "advancements.fatecraft.gilgamesh.bull_of_heaven.title"
+		},
+		"description": {
+			"translate": "advancements.fatecraft.gilgamesh.bull_of_heaven.description"
+		},
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"parent": "fatecraft:gilgamesh/humbaba"
+}

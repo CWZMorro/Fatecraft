@@ -1,0 +1,23 @@
+{
+	"criteria": {
+		"granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"icon": {
+			"id": "minecraft:nether_star"
+		},
+		"title": {
+			"translate": "advancements.fatecraft.gilgamesh.true_name.title"
+		},
+		"description": {
+			"translate": "advancements.fatecraft.gilgamesh.true_name.description"
+		},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"parent": "fatecraft:gilgamesh/herb_of_immortality"
+}

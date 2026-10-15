@@ -1,0 +1,37 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:special",
+          "base": "fatecraft:item/photon_ray",
+          "model": {
+            "type": "fatecraft:weapon_mesh",
+            "first_person": true,
+            "glow": "fatecraft:weapon/photon_ray_glow",
+            "mesh": "fatecraft:photon_ray",
+            "texture": "fatecraft:weapon/photon_ray",
+            "whole_spin": true
+          }
+        },
+        "when": [
+          "firstperson_righthand",
+          "firstperson_lefthand"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:special",
+      "base": "fatecraft:item/photon_ray",
+      "model": {
+        "type": "fatecraft:weapon_mesh",
+        "glow": "fatecraft:weapon/photon_ray_glow",
+        "mesh": "fatecraft:photon_ray_low",
+        "texture": "fatecraft:weapon/photon_ray",
+        "whole_spin": true
+      }
+    },
+    "property": "minecraft:display_context"
+  }
+}

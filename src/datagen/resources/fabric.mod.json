@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "fatecraft-datagen",
+	"version": "1.0.0",
+	"name": "Fatecraft data generation",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-datagen": [
+			"io.github.cwzmorro.fatecraft.datagen.FatecraftDataGenerator"
+		]
+	},
+	"depends": {
+		"fatecraft": "*"
+	}
+}

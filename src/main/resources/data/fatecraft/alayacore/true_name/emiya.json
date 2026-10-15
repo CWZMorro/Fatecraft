@@ -1,0 +1,18 @@
+{
+	"branch": "fatecraft:emiya/root",
+	"deeds": [
+		{
+			"advancement": "fatecraft:emiya/kill_warden",
+			"kill": "minecraft:warden"
+		},
+		{
+			"advancement": "fatecraft:emiya/win_raid",
+			"win_raid": true
+		},
+		{
+			"advancement": "fatecraft:emiya/kill_elder_guardian",
+			"kill": "minecraft:elder_guardian"
+		}
+	],
+	"awakening": "fatecraft:emiya/true_name"
+}

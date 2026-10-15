@@ -1,0 +1,15 @@
+pluginManagement {
+	repositories {
+		maven {
+			name = 'Fabric'
+			url = 'https://maven.fabricmc.net/'
+		}
+		mavenCentral()
+		gradlePluginPortal()
+	}
+}
+
+rootProject.name = 'fatecraft'
+
+// Build against the Alaya Core source next door instead of a published jar.
+includeBuild('../alaya-core')

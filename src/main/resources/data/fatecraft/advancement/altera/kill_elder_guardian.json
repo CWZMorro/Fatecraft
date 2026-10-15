@@ -1,0 +1,10 @@
+{
+	"criteria": {"granted": {"trigger": "minecraft:impossible"}},
+	"display": {
+		"icon": {"id": "minecraft:wet_sponge"},
+		"title": {"translate": "advancements.fatecraft.altera.kill_elder_guardian.title"},
+		"description": {"translate": "advancements.fatecraft.altera.kill_elder_guardian.description"},
+		"frame": "goal", "show_toast": true, "announce_to_chat": true, "hidden": false
+	},
+	"parent": "fatecraft:altera/win_raid"
+}

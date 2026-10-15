@@ -1,0 +1,23 @@
+{
+	"criteria": {
+		"granted": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"display": {
+		"icon": {
+			"id": "minecraft:totem_of_undying"
+		},
+		"title": {
+			"translate": "advancements.fatecraft.emiya.win_raid.title"
+		},
+		"description": {
+			"translate": "advancements.fatecraft.emiya.win_raid.description"
+		},
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"parent": "fatecraft:emiya/kill_warden"
+}
